@@ -12,6 +12,8 @@ namespace AluraTunesData
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AluraTunesEntities : DbContext
     {
@@ -30,10 +32,19 @@ namespace AluraTunesData
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Faixa> Faixas { get; set; }
         public virtual DbSet<Funcionario> Funcionarios { get; set; }
-        public virtual DbSet<Genero> Generos { get; set; }
-        public virtual DbSet<ItemNotaFiscal> ItemsNotaFiscal { get; set; }
+        public virtual DbSet<Genero> Generoes { get; set; }
+        public virtual DbSet<ItemNotaFiscal> ItemNotaFiscals { get; set; }
         public virtual DbSet<NotaFiscal> NotasFiscais { get; set; }
         public virtual DbSet<Playlist> Playlists { get; set; }
         public virtual DbSet<TipoMidia> TipoMidias { get; set; }
+    
+        public virtual ObjectResult<ps_Itens_Por_Cliente_Result> ps_Itens_Por_Cliente(Nullable<int> clienteId)
+        {
+            var clienteIdParameter = clienteId.HasValue ?
+                new ObjectParameter("clienteId", clienteId) :
+                new ObjectParameter("clienteId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ps_Itens_Por_Cliente_Result>("ps_Itens_Por_Cliente", clienteIdParameter);
+        }
     }
 }

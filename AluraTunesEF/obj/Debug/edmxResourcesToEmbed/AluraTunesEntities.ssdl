@@ -252,6 +252,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ps_Itens_Por_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clienteId" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="AluraTunesModelStoreContainer">
     <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Artista" EntityType="Self.Artista" Schema="dbo" store:Type="Tables" />

@@ -111,6 +111,9 @@
       <DependentUpon>AluraTunesEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ps_Itens_Por_Cliente_Result.cs">
+      <DependentUpon>AluraTunesEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoMidia.cs">
       <DependentUpon>AluraTunesEntities.tt</DependentUpon>
     </Compile>

@@ -131,5 +131,19 @@
         <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="ps_Itens_Por_Cliente" FunctionName="AluraTunesModel.Store.ps_Itens_Por_Cliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AluraTunesModel.ps_Itens_Por_Cliente_Result">
+          <ScalarProperty Name="FaixaId" ColumnName="FaixaId" />
+          <ScalarProperty Name="ItemNotaFiscalId" ColumnName="ItemNotaFiscalId" />
+          <ScalarProperty Name="NotaFiscalId" ColumnName="NotaFiscalId" />
+          <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="DataNotaFiscal" ColumnName="DataNotaFiscal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

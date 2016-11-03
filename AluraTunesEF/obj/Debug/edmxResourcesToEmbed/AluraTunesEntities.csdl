@@ -295,5 +295,18 @@
       <End Role="Faixa" EntitySet="Faixas" />
       <End Role="Playlist" EntitySet="Playlists" />
     </AssociationSet>
+    <FunctionImport Name="ps_Itens_Por_Cliente" ReturnType="Collection(AluraTunesModel.ps_Itens_Por_Cliente_Result)">
+      <Parameter Name="clienteId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="ps_Itens_Por_Cliente_Result">
+    <Property Type="Int32" Name="FaixaId" Nullable="false" />
+    <Property Type="Int32" Name="ItemNotaFiscalId" Nullable="false" />
+    <Property Type="Int32" Name="NotaFiscalId" Nullable="false" />
+    <Property Type="Decimal" Name="PrecoUnitario" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Int32" Name="Quantidade" Nullable="false" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="21" Scale="2" />
+    <Property Type="DateTime" Name="DataNotaFiscal" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Nome" Nullable="false" MaxLength="200" />
+  </ComplexType>
 </Schema>

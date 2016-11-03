@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AluraTunesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AluraTunesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="AlbumId" />
@@ -257,6 +257,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ps_Itens_Por_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clienteId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="AluraTunesModelStoreContainer">
           <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Artista" EntityType="Self.Artista" Schema="dbo" store:Type="Tables" />
@@ -314,8 +317,7 @@
             <End Role="PlaylistFaixa" EntitySet="PlaylistFaixa" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AluraTunesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -614,7 +616,20 @@
             <End Role="Faixa" EntitySet="Faixas" />
             <End Role="Playlist" EntitySet="Playlists" />
           </AssociationSet>
+          <FunctionImport Name="ps_Itens_Por_Cliente" ReturnType="Collection(AluraTunesModel.ps_Itens_Por_Cliente_Result)">
+            <Parameter Name="clienteId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="ps_Itens_Por_Cliente_Result">
+          <Property Type="Int32" Name="FaixaId" Nullable="false" />
+          <Property Type="Int32" Name="ItemNotaFiscalId" Nullable="false" />
+          <Property Type="Int32" Name="NotaFiscalId" Nullable="false" />
+          <Property Type="Decimal" Name="PrecoUnitario" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="Quantidade" Nullable="false" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="21" Scale="2" />
+          <Property Type="DateTime" Name="DataNotaFiscal" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="200" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -751,6 +766,20 @@
               <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="ps_Itens_Por_Cliente" FunctionName="AluraTunesModel.Store.ps_Itens_Por_Cliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AluraTunesModel.ps_Itens_Por_Cliente_Result">
+                <ScalarProperty Name="FaixaId" ColumnName="FaixaId" />
+                <ScalarProperty Name="ItemNotaFiscalId" ColumnName="ItemNotaFiscalId" />
+                <ScalarProperty Name="NotaFiscalId" ColumnName="NotaFiscalId" />
+                <ScalarProperty Name="PrecoUnitario" ColumnName="PrecoUnitario" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DataNotaFiscal" ColumnName="DataNotaFiscal" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
