@@ -1,0 +1,14 @@
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\Aula1.exe.config
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\Aula1.exe
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\Aula1.pdb
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\obj\Debug\Aula1.csprojResolveAssemblyReference.cache
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\obj\Debug\Aula1.exe
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\obj\Debug\Aula1.pdb
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\AluraTunes.mdf
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\AluraTunes_log.ldf
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\AluraTunesData.dll
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\EntityFramework.dll
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\AluraTunesData.pdb
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\EntityFramework.xml
+C:\Users\marce\Documents\GitHub\linq-c-sharp-2\Aula1\bin\Debug\EntityFramework.SqlServer.xml
